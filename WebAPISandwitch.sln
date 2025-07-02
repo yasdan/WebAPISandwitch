@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.10.35027.167
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebAPISandwitch", "WebAPISandwitch.csproj", "{6A6CD2FE-4F0B-412F-98AB-0CDFB98D70A1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HttpClientApp", "..\HttpClientApp\HttpClientApp.csproj", "{507F4D65-EEA5-429E-A975-2CFB91964E36}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6A6CD2FE-4F0B-412F-98AB-0CDFB98D70A1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6A6CD2FE-4F0B-412F-98AB-0CDFB98D70A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6A6CD2FE-4F0B-412F-98AB-0CDFB98D70A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6A6CD2FE-4F0B-412F-98AB-0CDFB98D70A1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{507F4D65-EEA5-429E-A975-2CFB91964E36}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{507F4D65-EEA5-429E-A975-2CFB91964E36}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{507F4D65-EEA5-429E-A975-2CFB91964E36}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{507F4D65-EEA5-429E-A975-2CFB91964E36}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C270BCD4-25ED-429A-9C3E-94E99346D79F}
+	EndGlobalSection
+EndGlobal

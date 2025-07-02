@@ -1,30 +1,35 @@
-using Microsoft.EntityFrameworkCore;
-using WebAPISandwitch.Model;
+﻿// See https://aka.ms/new-console-template for more information
+using HttpClientApp;
+using System.Net.Http.Headers;
+using System.Text.Json;
+Console.WriteLine("Hello, World!Welcome To the HTTP Client");
 
-var builder = WebApplication.CreateBuilder(args);
+await ShowSandwiches();
 
-// Add services to the container.
 
-builder.Services.AddControllers();
-builder.Services.AddConnections();
-builder.Services.AddDbContext<SandwitchContext>(opt => opt.UseSqlServer());
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
-
-var app = builder.Build();
-
-// Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
+static async Task<List<Repository>> ProcessRepositoriesAsync(HttpClient client)
 {
-    app.UseSwagger();
-    app.UseSwaggerUI();
+    
+    await using Stream stream =
+        await client.GetStreamAsync("https://localhost:7250/api/Sandwitche");
+    var repositories =
+        await JsonSerializer.DeserializeAsync<List<Repository>>(stream);
+    return repositories ?? new();// Initialize a new instance of List<Repository> class
+                                 // which is empty and has default initial capacity.
 }
 
-app.UseHttpsRedirection();
+static async Task ShowSandwiches()
+{
+    using (HttpClient client = new HttpClient())
+    {
+        client.DefaultRequestHeaders.Accept.Clear();// clear all previosu header data.
 
-app.UseAuthorization();
 
-app.MapControllers();
+        var repositories = await ProcessRepositoriesAsync(client);
 
-app.Run();
+        foreach (var repository in repositories)
+        {
+            Console.WriteLine($"{repository.Id}  {repository.Name}    {repository.Price}");
+        }
+    }
+}
